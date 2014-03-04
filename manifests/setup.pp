@@ -40,7 +40,7 @@ class etherpad::setup {
     path => '/bin:/usr/bin',
     unless => "[ -d '${etherpad_root}/.git' ]",
     require => File[$etherpad_root],
-    command => "git clone ${etherpad_sources} ${etherpad_root}",
+    command => "cd ${etherpad_root}; git clone ${etherpad_sources} ${etherpad_root}",
     user => $etherpad_user,
     group => $etherpad_user,
   }
